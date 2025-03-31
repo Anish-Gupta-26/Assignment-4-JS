@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Features</title>
+    <script>
+        function displayDateTime() {
+            const now = new Date();
+            document.getElementById("dateTime").innerText = now;
+        }
+
+        function generateRandomNumber() {
+            const randomNum = Math.floor(Math.random() * 100) + 1; 
+            document.getElementById("randomNumber").innerText = "Random Number: " + randomNum;
+        }
+
+        async function fetchWeather() {
+            const apiKey = "fb1ae5d9969f2179278b83fb37f8b6bc"; 
+            const city = "Indore";
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+            
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error("Weather data not available");
+                }
+                const data = await response.json();
+                document.getElementById("weather").innerText = 
+                    `Weather in ${data.name}: ${data.main.temp}°C, ${data.weather[0].description}`;
+            } catch (error) {
+                document.getElementById("weather").innerText = "Error fetching weather data";
+                console.error(error);
+            }
+        }
+
+        window.onload = function () {
+            displayDateTime();
+            generateRandomNumber();
+            fetchWeather();
+        };
+    </script>
+</head>
+<body>
+    <h1>JavaScript Features</h1>
+    <p><strong>Current Date & Time:</strong> <span id="dateTime"></span></p>
+    <p id="randomNumber"></p>
+    <p id="weather"></p>
+</body>
+</html>

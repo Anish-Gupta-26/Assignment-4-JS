@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Change Content Example</title>
+    <style>
+        #text {
+            font-size: 20px;
+            color: blue;
+        }
+        #image {
+            width: 200px;
+        }
+    </style>
+    <script>
+        function changeText() {
+            document.getElementById("text").innerText = "Text changed!";
+        }
+
+        function changeStyle() {
+            document.getElementById("text").style.color = "red";
+            document.getElementById("text").style.fontSize = "30px";
+        }
+
+        function changeImage() {
+            document.getElementById("image").src = "https://via.placeholder.com/200";
+        }
+    </script>
+</head>
+<body>
+    <p id="text">Original Text</p>
+    <button onclick="changeText()">Change Text</button>
+    <button onclick="changeStyle()">Change Style</button>
+    
+    <br><br>
+    <img id="image" src="https://via.placeholder.com/150" alt="Sample Image">
+    <button onclick="changeImage()">Change Image</button>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dynamic List Example</title>
+    <script>
+        function addItem() {
+            let itemText = document.getElementById("newItem").value;
+            if (itemText.trim() === "") return;
+
+            let listItem = document.createElement("li");
+            listItem.innerHTML = `${itemText} <button onclick="removeItem(this)">❌</button>`;
+
+            document.getElementById("itemList").appendChild(listItem);
+            document.getElementById("newItem").value = "";
+        }
+
+        function removeItem(button) {
+            button.parentElement.remove();
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="newItem" placeholder="Enter item">
+    <button onclick="addItem()">Add Item</button>
+    <ul id="itemList"></ul>
+</body>
+</html>

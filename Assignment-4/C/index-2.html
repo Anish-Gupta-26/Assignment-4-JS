@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hover Effect Example</title>
+    <style>
+        #hoverBox {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+    <script>
+        function changeOnHover() {
+            document.getElementById("hoverBox").style.backgroundColor = "lightcoral";
+            document.getElementById("hoverBox").innerText = "Hovered!";
+        }
+
+        function revertOnLeave() {
+            document.getElementById("hoverBox").style.backgroundColor = "lightblue";
+            document.getElementById("hoverBox").innerText = "Hover over me!";
+        }
+    </script>
+</head>
+<body>
+    <div id="hoverBox" onmouseover="changeOnHover()" onmouseout="revertOnLeave()">
+        Hover over me!
+    </div>
+</body>
+</html>
